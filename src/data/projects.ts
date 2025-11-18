@@ -12,14 +12,14 @@ export const projects: Project[] = [
   {
     id: 1,
     title: "Hospital Management System",
-    description:
-      "A web-based system designed to manage patient records, appointments, doctor schedules, and administrative tasks efficiently.",
-    image:
-      "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&h=600&fit=crop",
+    description: "A web-based system to manage patient records, appointments, doctor schedules, and administrative tasks efficiently.",
+    image: "/hospital.jpeg", // public folder-la irukkura image
     technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
     github: "https://github.com/Sangavig22/Hospital-Booking",
     demo: "",
   },
+
+
   {
     id: 2,
     title: "Current Project (In Progress)",

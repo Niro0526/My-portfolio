@@ -25,7 +25,7 @@ const Hero = () => {
               transition={{ duration: 0.5 }}
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                Hi, I'm <span className="gradient-text">Niroja Vijayakumar</span>
+                Hi, I'm <span className="gradient-text">Niroja </span>
               </h1>
             </motion.div>
 
