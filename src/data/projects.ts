@@ -11,29 +11,22 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce solution with payment integration, inventory management, and user authentication. Built with React, Node.js, and MongoDB.",
-    image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
-    github: "https://github.com",
-    demo: "https://demo.com"
+    title: "Hospital Management System",
+    description:
+      "A web-based system designed to manage patient records, appointments, doctor schedules, and administrative tasks efficiently.",
+    image:
+      "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&h=600&fit=crop",
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+    github: "https://github.com/Sangavig22/Hospital-Booking",
+    demo: "",
   },
   {
     id: 2,
-    title: "Task Management App",
-    description: "A collaborative project management tool with real-time updates, drag-and-drop functionality, and team collaboration features.",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
-    technologies: ["React", "Firebase", "TypeScript", "Material-UI"],
-    github: "https://github.com",
-    demo: "https://demo.com"
-  },
-  {
-    id: 3,
-    title: "Weather Dashboard",
-    description: "Real-time weather application with location-based forecasts, interactive maps, and weather alerts. Features a clean and intuitive interface.",
-    image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=600&fit=crop",
-    technologies: ["React", "OpenWeather API", "Chart.js", "CSS3"],
-    github: "https://github.com",
-    demo: "https://demo.com"
+    title: "Current Project (In Progress)",
+    description:
+      "An ongoing project that showcases my exploration of new tools and technologies in full-stack web development. This section will be updated once the project is ready to be showcased.",
+    image:
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop",
+    technologies: ["React", "TypeScript", "Node.js"],
   },
 ];

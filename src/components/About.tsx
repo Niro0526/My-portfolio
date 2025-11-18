@@ -47,21 +47,18 @@ const About = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <div className="glass-effect p-8 rounded-2xl card-shadow">
-              <h3 className="text-2xl font-bold mb-4">Hello! I'm a Full Stack Developer</h3>
+              <h3 className="text-2xl font-bold mb-4">
+                Hello! I'm Niroja Vijayakumar
+              </h3>
               <p className="text-muted-foreground mb-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <p className="text-muted-foreground mb-4">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-                culpa qui officia deserunt mollit anim id est laborum.
+                I am a second-year BSc (Hons) in Information Technology undergraduate at the
+                University of Moratuwa. I am passionate about building modern and responsive web
+                applications while continuously improving my technical and problem-solving skills.
               </p>
               <p className="text-muted-foreground">
-                My passion lies in creating elegant solutions to complex problems and bringing 
-                ideas to life through code. I'm constantly learning and staying up-to-date with 
-                the latest technologies and best practices.
+                I enjoy working on real-world projects that combine clean design, performance, and
+                usability, while constantly learning new tools and best practices in web
+                development.
               </p>
             </div>
           </motion.div>

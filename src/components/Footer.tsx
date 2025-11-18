@@ -8,13 +8,13 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
-            <h3 className="text-2xl font-bold gradient-text mb-2">Your Name Here</h3>
-            <p className="text-muted-foreground">Full Stack Developer</p>
+            <h3 className="text-2xl font-bold gradient-text mb-2">Niroja Vijayakumar</h3>
+            <p className="text-muted-foreground">IT Undergraduate | Web Developer</p>
           </div>
 
           <div className="flex gap-6">
             <a
-              href="https://github.com"
+              href="https://github.com/Niro0526"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -22,7 +22,7 @@ const Footer = () => {
               <Github className="w-6 h-6" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/niroja-vijayakumar-873a4b306"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -30,15 +30,7 @@ const Footer = () => {
               <Linkedin className="w-6 h-6" />
             </a>
             <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Twitter className="w-6 h-6" />
-            </a>
-            <a
-              href="mailto:your.email@example.com"
+              href="mailto:niroja0226@gmail.com"
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               <Mail className="w-6 h-6" />
@@ -47,7 +39,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 pt-8 border-t border-border text-center text-muted-foreground">
-          <p>© {currentYear} Your Name Here. All rights reserved.</p>
+          <p>© {currentYear} Niroja Vijayakumar. All rights reserved.</p>
         </div>
       </div>
     </footer>

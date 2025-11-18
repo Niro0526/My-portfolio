@@ -55,7 +55,7 @@ const Navbar = () => {
               handleNavClick("#home");
             }}
           >
-            Portfolio
+            Niroja Vijayakumar
           </motion.a>
 
           {/* Desktop Navigation */}
