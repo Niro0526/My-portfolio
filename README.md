@@ -13,7 +13,7 @@
 ## 🛠 Technologies Used
 
 - **Frontend:** React, TypeScript, Tailwind CSS  
-- **Backend / Tools:** Node.js (optional), Git & GitHub for version control  
+
 - **Design:** Figma-inspired UI concepts, responsive layout  
 
 ## 📸 Screenshots
