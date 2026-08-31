@@ -2,156 +2,471 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 220 13% 13%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 220 13% 13%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 13%;
-
-    --primary: 189 94% 43%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 253 91% 67%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 220 13% 95%;
-    --muted-foreground: 220 9% 46%;
-
-    --accent: 37 91% 55%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 189 94% 43%;
-
-    --radius: 0.75rem;
-
-    /* Portfolio specific colors */
-    --gradient-start: 189 94% 43%;
-    --gradient-middle: 253 91% 67%;
-    --gradient-end: 280 83% 62%;
-    
-    --hero-glow: 189 94% 43%;
-    --card-glow: 253 91% 67%;
-    
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(220 13% 13% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(220 13% 13% / 0.1), 0 2px 4px -1px hsl(220 13% 13% / 0.06);
-    --shadow-lg: 0 10px 15px -3px hsl(220 13% 13% / 0.1), 0 4px 6px -2px hsl(220 13% 13% / 0.05);
-    --shadow-xl: 0 20px 25px -5px hsl(220 13% 13% / 0.1), 0 10px 10px -5px hsl(220 13% 13% / 0.04);
-    
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 220 26% 7%;
-    --foreground: 210 40% 98%;
-
-    --card: 220 23% 11%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 220 23% 11%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 189 94% 43%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 253 91% 67%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 220 17% 20%;
-    --muted-foreground: 220 9% 65%;
-
-    --accent: 37 91% 55%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 220 17% 20%;
-    --input: 220 17% 20%;
-    --ring: 189 94% 43%;
-
-    /* Portfolio specific colors - dark mode */
-    --gradient-start: 189 94% 43%;
-    --gradient-middle: 253 91% 67%;
-    --gradient-end: 280 83% 62%;
-    
-    --hero-glow: 189 94% 43%;
-    --card-glow: 253 91% 67%;
-    
-    /* Shadows - dark mode */
-    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.3);
-    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.4), 0 2px 4px -1px hsl(0 0% 0% / 0.3);
-    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.5), 0 4px 6px -2px hsl(0 0% 0% / 0.4);
-    --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.6), 0 10px 10px -5px hsl(0 0% 0% / 0.5);
-    
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
+/* ================================================
+   GLOBAL STYLES
+   ================================================ */
 @layer base {
   * {
-    @apply border-border;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(168, 85, 247, 0.3) rgba(10, 6, 18, 0.5);
   }
 
   body {
-    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #0a0612;
+    color: #f0edf5;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  
-  html {
-    scroll-behavior: smooth;
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(10, 6, 18, 0.5);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(168, 85, 247, 0.3);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(168, 85, 247, 0.5);
+  }
+
+  ::selection {
+    background-color: rgba(168, 85, 247, 0.3);
+    color: #f0edf5;
   }
 }
 
-@layer utilities {
+/* ================================================
+   GLASSMORPHISM UTILITIES
+   ================================================ */
+@layer components {
+  .glass-card {
+    background: rgba(25, 15, 40, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    border-radius: 1rem;
+  }
+
+  .glass-card-hover {
+    background: rgba(25, 15, 40, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    border-radius: 1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-card-hover:hover {
+    border-color: rgba(168, 85, 247, 0.35);
+    box-shadow: 0 8px 32px rgba(168, 85, 247, 0.15),
+                0 0 60px rgba(168, 85, 247, 0.05);
+  }
+
+  .glass-navbar {
+    background: rgba(10, 6, 18, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(168, 85, 247, 0.1);
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-medium text-sm tracking-wide transition-all duration-300;
+    background: linear-gradient(135deg, #a855f7, #7c3aed);
+    color: #f0edf5;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.4),
+                0 0 60px rgba(168, 85, 247, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-medium text-sm tracking-wide transition-all duration-300;
+    background: rgba(25, 15, 40, 0.6);
+    color: #f0edf5;
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    backdrop-filter: blur(12px);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(168, 85, 247, 0.15);
+    border-color: rgba(168, 85, 247, 0.4);
+    transform: translateY(-2px);
+  }
+
+  /* Gradient Text */
   .gradient-text {
-    @apply bg-gradient-to-r from-[hsl(var(--gradient-start))] via-[hsl(var(--gradient-middle))] to-[hsl(var(--gradient-end))] bg-clip-text text-transparent;
+    background: linear-gradient(135deg, #c084fc, #a855f7, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
-  
-  .gradient-bg {
-    @apply bg-gradient-to-br from-[hsl(var(--gradient-start))] via-[hsl(var(--gradient-middle))] to-[hsl(var(--gradient-end))];
+
+  .gradient-text-subtle {
+    background: linear-gradient(135deg, #e9d5ff, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
-  
-  .glass-effect {
-    @apply backdrop-blur-md bg-card/80 border border-border/50;
+
+  /* Skill Pill */
+  .skill-pill {
+    @apply px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-default;
+    background: rgba(25, 15, 40, 0.7);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    color: #c084fc;
   }
-  
-  .shadow-glow {
-    box-shadow: 0 0 40px -10px hsl(var(--hero-glow) / 0.4);
+
+  .skill-pill:hover {
+    background: rgba(168, 85, 247, 0.15);
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
+    color: #e9d5ff;
+    transform: translateY(-2px) scale(1.05);
   }
-  
-  .card-shadow {
-    box-shadow: var(--shadow-md);
+
+  /* Section */
+  .section-container {
+    @apply max-w-[1300px] mx-auto px-6 md:px-8 lg:px-12;
   }
-  
-  .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+
+  .section-eyebrow {
+    @apply text-xs font-semibold tracking-[0.2em] uppercase mb-4;
+    color: #a855f7;
   }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-6;
+    color: #f0edf5;
+  }
+
+  /* Glow Effects */
+  .glow-purple {
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.2),
+                0 0 80px rgba(168, 85, 247, 0.1);
+  }
+
+  .glow-purple-intense {
+    box-shadow: 0 0 60px rgba(168, 85, 247, 0.3),
+                0 0 120px rgba(168, 85, 247, 0.15);
+  }
+
+  /* Tag */
+  .tech-tag {
+    @apply px-3 py-1 rounded-full text-xs font-medium;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    color: #c084fc;
+    transition: all 0.3s ease;
+  }
+
+  .tech-tag:hover {
+    background: rgba(168, 85, 247, 0.2);
+    border-color: rgba(168, 85, 247, 0.4);
+  }
+}
+
+/* ================================================
+   3D CARD TILT
+   ================================================ */
+.tilt-3d {
+  transition: transform 0.15s ease-out;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ================================================
+   MOUSE-FOLLOWING GLOW
+   ================================================ */
+.mouse-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.mouse-glow::before {
+  content: '';
+  position: absolute;
+  top: var(--glow-y, 50%);
+  left: var(--glow-x, 50%);
+  width: 300px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.12) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mouse-glow:hover::before {
+  opacity: 1;
+}
+
+/* ================================================
+   3D FLOATING ELEMENTS
+   ================================================ */
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+}
+
+@keyframes orbit-reverse {
+  from { transform: rotate(360deg) translateX(90px) rotate(-360deg); }
+  to { transform: rotate(0deg) translateX(90px) rotate(0deg); }
+}
+
+@keyframes rotate-y {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+@keyframes rotate-ring {
+  from { transform: rotateX(70deg) rotateZ(0deg); }
+  to { transform: rotateX(70deg) rotateZ(360deg); }
+}
+
+@keyframes rotate-ring-reverse {
+  from { transform: rotateX(60deg) rotateY(30deg) rotateZ(0deg); }
+  to { transform: rotateX(60deg) rotateY(30deg) rotateZ(-360deg); }
+}
+
+@keyframes float-3d {
+  0%, 100% { transform: translateY(0) translateZ(0) rotateX(0); }
+  25% { transform: translateY(-15px) translateZ(20px) rotateX(5deg); }
+  50% { transform: translateY(-25px) translateZ(10px) rotateX(0); }
+  75% { transform: translateY(-10px) translateZ(30px) rotateX(-3deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes glow-pulse-ring {
+  0%, 100% { opacity: 0.3; box-shadow: 0 0 20px rgba(168, 85, 247, 0.2); }
+  50% { opacity: 0.7; box-shadow: 0 0 40px rgba(168, 85, 247, 0.4), 0 0 80px rgba(168, 85, 247, 0.15); }
+}
+
+.animate-orbit {
+  animation: orbit 20s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: orbit-reverse 15s linear infinite;
+}
+
+.animate-rotate-y {
+  animation: rotate-y 30s linear infinite;
+}
+
+.animate-float-3d {
+  animation: float-3d 8s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.08), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.animate-glow-ring {
+  animation: glow-pulse-ring 4s ease-in-out infinite;
+}
+
+/* 3D perspective container */
+.perspective-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Preserve 3D on children */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* ================================================
+   SCROLL REVEAL ANIMATION
+   ================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ================================================
+   BACKGROUND EFFECTS
+   ================================================ */
+.bg-grid {
+  background-image: 
+    linear-gradient(rgba(168, 85, 247, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.bg-radial-purple {
+  background: radial-gradient(ellipse 600px 600px at 50% 50%, rgba(168, 85, 247, 0.08), transparent);
+}
+
+/* ================================================
+   PROJECT CARD SPECIFICS
+   ================================================ */
+.project-card {
+  @apply relative overflow-hidden rounded-2xl cursor-pointer;
+  background: rgba(25, 15, 40, 0.5);
+  border: 1px solid rgba(168, 85, 247, 0.12);
+  transition: border-color 0.5s, box-shadow 0.5s;
+}
+
+.project-card:hover {
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 12px 40px rgba(168, 85, 247, 0.15),
+              0 0 80px rgba(168, 85, 247, 0.05);
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+.project-card:hover .tech-tag {
+  background: rgba(168, 85, 247, 0.2);
+  color: #e9d5ff;
+}
+
+.project-card:hover .project-arrow {
+  transform: translate(4px, -4px);
+}
+
+.project-image {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-arrow {
+  transition: transform 0.3s ease;
+}
+
+/* ================================================
+   MODAL
+   ================================================ */
+.modal-overlay {
+  @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+  background: rgba(5, 2, 10, 0.85);
+  backdrop-filter: blur(8px);
+  animation: fade-in 0.2s ease-out;
+}
+
+.modal-content {
+  @apply relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl;
+  background: rgba(17, 13, 27, 0.95);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  animation: modal-3d-in 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modal-3d-in {
+  from { opacity: 0; transform: perspective(800px) rotateX(-5deg) translateY(40px) scale(0.95); }
+  to { opacity: 1; transform: perspective(800px) rotateX(0deg) translateY(0) scale(1); }
+}
+
+/* ================================================
+   TIMELINE
+   ================================================ */
+.timeline-node {
+  @apply relative flex flex-col items-center;
+}
+
+.timeline-node::after {
+  content: '';
+  @apply absolute top-8 left-1/2 w-px h-full -translate-x-1/2;
+  background: linear-gradient(to bottom, rgba(168, 85, 247, 0.3), transparent);
+}
+
+.timeline-node:last-child::after {
+  display: none;
+}
+
+/* ================================================
+   MOBILE MENU
+   ================================================ */
+.mobile-menu-overlay {
+  @apply fixed inset-0 z-40;
+  background: rgba(5, 2, 10, 0.9);
+  backdrop-filter: blur(16px);
+}
+
+/* ================================================
+   3D HERO ORB
+   ================================================ */
+.hero-orb-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.hero-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.hero-ring-1 {
+  width: 110%;
+  height: 110%;
+  top: -5%;
+  left: -5%;
+  animation: rotate-ring 12s linear infinite;
+}
+
+.hero-ring-2 {
+  width: 130%;
+  height: 130%;
+  top: -15%;
+  left: -15%;
+  animation: rotate-ring-reverse 18s linear infinite;
+  border-color: rgba(192, 132, 252, 0.1);
+}
+
+.hero-ring-3 {
+  width: 150%;
+  height: 150%;
+  top: -25%;
+  left: -25%;
+  animation: rotate-ring 25s linear infinite;
+  border-color: rgba(168, 85, 247, 0.07);
 }

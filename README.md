@@ -1,31 +1,32 @@
-# PORTFOLITO 🌟
+# React + TypeScript + Vite
 
-**PORTFOLITO** is my personal portfolio website, built to showcase my projects, skills, and professional profile in a sleek and interactive way. This project is designed with modern web technologies to highlight both functionality and style.
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-## ✨ Features
+Currently, two official plugins are available:
 
-- **Interactive Projects Showcase** – Display your projects with descriptions, images, and live/demo links.  
-- **Profile & Skills Section** – Highlights expertise, tools, and technologies I work with.  
-- **Responsive & Modern Design** – Works seamlessly on desktop, tablet, and mobile devices.  
-- **Smooth Navigation** – Scroll effortlessly between sections with a clean UI.  
-- **Tailored Styling** – Built using React and Tailwind CSS for a polished look.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## 🛠 Technologies Used
+## React Compiler
 
-- **Frontend:** React, TypeScript, Tailwind CSS  
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-- **Design:** Figma-inspired UI concepts, responsive layout  
+## Expanding the Oxlint configuration
 
-## 📸 Screenshots
+If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
 
-![Uploading image.png…]()
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  }
+}
+```
 
-
-## 🚀 Getting Started
-
-To run PORTFOLITO locally, follow these steps:
-
-1. **Clone the repository:**
-
-```bash
-git clone https://github.com/Niro0526/My-portfolio.git
+See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.

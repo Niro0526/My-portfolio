@@ -1,96 +1,73 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { Code2, Palette, Rocket } from "lucide-react";
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useTilt3D } from '../hooks/useTilt3D';
+import { useMouseGlow } from '../hooks/useMouseGlow';
 
-const About = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+const cards = [
+  { num: '01', title: 'FULL-STACK DEVELOPMENT' },
+  { num: '02', title: 'BACKEND & DATABASES' },
+  { num: '03', title: 'REAL-WORLD PROBLEM SOLVING' },
+];
 
-  const features = [
-    {
-      icon: <Code2 className="w-8 h-8" />,
-      title: "Clean Code",
-      description: "Writing maintainable, scalable code following best practices",
-    },
-    {
-      icon: <Palette className="w-8 h-8" />,
-      title: "Beautiful Design",
-      description: "Creating intuitive interfaces with attention to detail",
-    },
-    {
-      icon: <Rocket className="w-8 h-8" />,
-      title: "Performance",
-      description: "Optimizing for speed and excellent user experience",
-    },
-  ];
+function TiltCard({ num, title, delay }: { num: string; title: string; delay: number }) {
+  const { ref, handleMouseMove, handleMouseLeave } = useTilt3D(10, 1.03);
+  const glow = useMouseGlow();
 
   return (
-    <section id="about" className="py-20 md:py-32" ref={ref}>
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            About <span className="gradient-text">Me</span>
+    <div
+      ref={(el) => {
+        (ref as React.MutableRefObject<HTMLDivElement | null>).current = el;
+        (glow.ref as React.MutableRefObject<HTMLDivElement | null>).current = el;
+      }}
+      onMouseMove={(e) => { handleMouseMove(e); glow.handleMouseMove(e); }}
+      onMouseLeave={handleMouseLeave}
+      className={`glass-card-hover tilt-3d mouse-glow p-8 reveal reveal-delay-${delay}`}
+    >
+      <span className="text-4xl font-extrabold gradient-text-subtle block mb-4 relative z-10">
+        {num}
+      </span>
+      <h3 className="text-sm font-semibold tracking-wider text-text-primary relative z-10">
+        {title}
+      </h3>
+    </div>
+  );
+}
+
+export default function About() {
+  const ref = useScrollReveal();
+
+  return (
+    <section id="about" className="relative py-28 md:py-36">
+      {/* Background accent */}
+      <div className="absolute top-1/2 left-0 w-[500px] h-[500px] rounded-full bg-purple-dark/5 blur-[100px] -translate-y-1/2" />
+
+      <div ref={ref} className="section-container relative z-10">
+        {/* Header */}
+        <div className="max-w-3xl mb-16 reveal">
+          <p className="section-eyebrow">ABOUT</p>
+          <h2 className="section-title">
+            Engineering with <span className="gradient-text">purpose.</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto" />
-        </motion.div>
+          <p className="text-text-secondary text-lg leading-relaxed mb-6 reveal reveal-delay-1">
+            I am a Software Engineering undergraduate at the University of
+            Moratuwa with hands-on experience developing full-stack web
+            applications and software systems.
+          </p>
+          <p className="text-text-secondary text-base leading-relaxed reveal reveal-delay-2">
+            I enjoy working across frontend and backend development, designing
+            databases, implementing authentication and role-based access,
+            building REST APIs, integrating real-time communication, debugging
+            application flows, and turning practical requirements into
+            maintainable software.
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <div className="glass-effect p-8 rounded-2xl card-shadow">
-              <h3 className="text-2xl font-bold mb-4">
-                Hello! I'm Niroja Vijayakumar
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                I am a second-year BSc (Hons) in Information Technology undergraduate at the
-                University of Moratuwa. I am passionate about building modern and responsive web
-                applications while continuously improving my technical and problem-solving skills.
-              </p>
-              <p className="text-muted-foreground">
-                I enjoy working on real-world projects that combine clean design, performance, and
-                usability, while constantly learning new tools and best practices in web
-                development.
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="space-y-6"
-          >
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                className="glass-effect p-6 rounded-xl card-hover"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="text-primary">{feature.icon}</div>
-                  <div>
-                    <h4 className="text-xl font-semibold mb-2">{feature.title}</h4>
-                    <p className="text-muted-foreground">{feature.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+        {/* Cards with 3D tilt */}
+        <div className="grid sm:grid-cols-3 gap-6 perspective-container">
+          {cards.map((card, i) => (
+            <TiltCard key={card.num} num={card.num} title={card.title} delay={i + 1} />
+          ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default About;
+}
